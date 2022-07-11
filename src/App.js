@@ -3,7 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import About from './Containers/About/About';
-import Appointment from './Containers/Appointment/Appointment';
+import Appointment from './Containers/Appointment/BookAppointment';
+import BookAppointment from './Containers/Appointment/BookAppointment';
+import ListAppointment from './Containers/Appointment/ListAppointment';
 import Contact from './Containers/Contact/Contact';
 import Department from './Containers/Department/Department';
 import Doctor from './Containers/Doctor/Doctor';
@@ -27,6 +29,8 @@ function App(props) {
         <Route path={"/Login"} exact component={Login} />
         <Route path={"/Medicines"} exact component={Medicines} />
         <Route path={"/RefExample"} exact component={RefExample} />
+        <Route path={"/bookappointment"} exact component={BookAppointment} />
+        <Route path={"/listappointment"} exact component={ListAppointment} />
       </Switch>
       <Footer />
     </div>

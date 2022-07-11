@@ -27,6 +27,7 @@ function Login(props) {
             },
         });
 
+        const {handleSumbit, handleChange, errors, touched} = formik;
 
         return (
             <center>
@@ -43,7 +44,7 @@ function Login(props) {
                             }
                         </div>
                         <Formik values={Formik}>
-                            <Form action method="post" role="form" className="php-email-form">
+                            <Form className="php-email-form" onSubmit={handleSumbit}>
                                 {
                                     reset === "true" ?
                                         null :
@@ -92,8 +93,8 @@ function Login(props) {
                                             <span>Create a New Account ?<button onClick={() => { setReset('false'); setUser("Login") }}>Login</button></span>
                                         </div>
                                 }
-                                <br>
-                                </br>
+                                {/* <br>
+                                </br> */}
                                 <div className="text-center"><button type='submit' className='s-btn' onClick={() => setReset('true')}>Forget Password</button></div>
                             </Form>
                         </Formik>
