@@ -54,9 +54,9 @@ function ListAppointment(props) {
                                 data.map((d, i) => {
                                     return (
                                         <Card key={i}
-                                            body
-                                            color='light'
-                                            inverse>
+                                            color="secondary"
+                                            outline
+                                        >
                                             <CardBody>
                                                 <CardTitle tag="h5">
                                                     {d.name}

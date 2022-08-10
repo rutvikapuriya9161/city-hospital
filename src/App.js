@@ -13,27 +13,32 @@ import Home from './Containers/Home/Home';
 import Login from './Containers/Login/Login';
 import Medicines from './Containers/Medicines/Medicines';
 import RefExample from './Containers/RefExample/RefExample';
+import { ThemeProvider } from './Context/ThemeContext';
+import PrivateRoute from './Route/PrivateRoute';
+import PublicRoute from './Route/PublicRoute';
 
 
 function App(props) {
   return (
-    <div>
-      <Header />
-      <Switch>
-        <Route path={"/"} exact component={Home} />
-        <Route path={"/department"} exact component={Department} />
-        <Route path={"/Doctor"} exact component={Doctor} />
-        <Route path={"/About"} exact component={About} />
-        <Route path={"/Contact"} exact component={Contact} />
-        <Route path={"/Appointment"} exact component={Appointment} />
-        <Route path={"/Login"} exact component={Login} />
-        <Route path={"/Medicines"} exact component={Medicines} />
-        <Route path={"/RefExample"} exact component={RefExample} />
-        <Route path={"/bookappointment"} exact component={BookAppointment} />
-        <Route path={"/listappointment"} exact component={ListAppointment} />
-      </Switch>
-      <Footer />
-    </div>
+    <>
+      <ThemeProvider>
+        <Header />
+        <Switch>
+          <PublicRoute path={"/"} exact component={Home} />
+          <PublicRoute path={"/department"} exact component={Department} />
+          <PublicRoute path={"/Doctor"} exact component={Doctor} />
+          <PublicRoute path={"/About"} exact component={About} />
+          <PublicRoute path={"/Contact"} exact component={Contact} />
+          <PublicRoute path={"/Appointment"} exact component={Appointment} />
+          <PublicRoute path={"/Login"} restriced={true} exact component={Login} />
+          <PublicRoute path={"/Medicines"} exact component={Medicines} />
+          <PublicRoute path={"/RefExample"} exact component={RefExample} />
+          <PrivateRoute path={"/bookappointment"} exact component={BookAppointment} />
+          <PrivateRoute path={"/listappointment"} exact component={ListAppointment} />
+        </Switch>
+        <Footer />
+      </ThemeProvider>
+    </>
   );
 }
 
