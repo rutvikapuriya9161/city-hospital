@@ -38,15 +38,17 @@ function Login(props) {
     let schema = yup.object().shape(schemaObj);
 
     const handleData = (values) => {
-        let localData = JSON.parse(localStorage.getItem("user"));
+        // let localData = JSON.parse(localStorage.getItem("user"));
 
-        if (localData == null){
-            localStorage.setItem("user", JSON.stringify([values]));
-        }else{
-            localData.push(values);
-            localStorage.setItem("user", JSON.stringify(localData));
-        }
-        console.log(values);
+        // if (localData == null){
+        //     localStorage.setItem("user", JSON.stringify([values]));
+        // }else{
+        //     localData.push(values);
+        //     localStorage.setItem("user", JSON.stringify(localData));
+        // }
+        // console.log(values);
+
+        dispatch(signUpAction(values));
     }
 
         const formik = useFormik({
