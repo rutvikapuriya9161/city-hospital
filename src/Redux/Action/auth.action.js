@@ -1,5 +1,5 @@
-import * as ActionType from '../ActionType';
+import * as ActionTypes from '../ActionTypes';
 
 export const signUpAction = (data) => (dispatch) => {
-    dispatch({type : ActionType.SIGN_UP , payload : data});
+    dispatch({type : ActionTypes.SIGN_UP , payload : data});
 }   
