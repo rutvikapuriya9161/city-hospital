@@ -33,3 +33,33 @@ export const SignUpapi = (data) => {
             });
     })
 }
+export const SignInapi = (data) => {
+    console.log("SignInapi", data);
+
+    return new Promise((resolve, reject) => {
+
+        signInWithEmailAndPassword(auth, data.email, data.password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+
+                if (user.emailVerified) {
+
+                    reject({ payload: "Your Login Is Succesfully"});
+                }else{
+                    reject({ payload: "Please Cheack Your Email."});
+                }
+                console.log(user);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+
+                if (errorCode.localeCompare("auth/user-not-found") === 0) 
+                {
+                    reject({ payload: "Please Check Your Email Or Password." });
+                }else{
+                    reject({ payload: errorCode });
+                }
+                console.log(error);
+            });
+        })
+    }
