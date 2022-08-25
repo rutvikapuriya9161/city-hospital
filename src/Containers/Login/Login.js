@@ -1,6 +1,8 @@
 import { useFormik, Formik } from 'formik';
 import React, { useState } from 'react';
 import { Form } from 'reactstrap';
+import { signUpAction, signInAction } from '../../redux/action/auth.action';
+import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 
 
