@@ -17,7 +17,7 @@ import { ThemeProvider } from './Context/ThemeContext';
 import PrivateRoute from './Route/PrivateRoute';
 import PublicRoute from './Route/PublicRoute';
 import { Provider } from 'react-redux';
-import { store } from './redux/Store';
+import { store } from './Redux/Store';
 import { SnackbarProvider } from 'notistack';
 
 
